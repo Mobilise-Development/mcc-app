@@ -1,0 +1,162 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "gwent groups",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "ListGroupIntent",
+          "slots": [],
+          "samples": [
+            "How many available groups",
+            "How many groups are there",
+            "List groups",
+            "List all available groups",
+            "What groups",
+            "Are there any groups available",
+            "What groups are available"
+          ]
+        },
+        {
+          "name": "JoinGroupIntent",
+          "slots": [
+            {
+              "name": "group_name",
+              "type": "group_name"
+            }
+          ],
+          "samples": [
+            "join {group_name} group",
+            "join the {group_name} group",
+            "could I join the {group_name} group",
+            "can I join the {group_name} group",
+            "could I join {group_name}",
+            "can I join {group_name}",
+            "join {group_name}"
+          ]
+        },
+        {
+          "name": "GetEmailIntent",
+          "slots": [],
+          "samples": [
+            "tell me my email address",
+            "what is my email address",
+            "show me my email address",
+            "what\u0027s my email",
+            "Can you tell me my email",
+            "What is my email"
+          ]
+        },
+        {
+          "name": "ListCategoryGroupIntent",
+          "slots": [
+            {
+              "name": "category",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "can you tell me what groups to do with {category} are available",
+            "list all groups on {category}",
+            "Are there any groups on {category}",
+            "can you tell me what {category} groups are available",
+            "List {category} groups",
+            "Are there any {category} groups available",
+            "What {category} groups are available"
+          ]
+        },
+        {
+          "name": "MyGroupsIntent",
+          "slots": [],
+          "samples": [
+            "List all groups I am a part of",
+            "List my current groups",
+            "List the groups I am in",
+            "How many groups am I part of",
+            "How many groups am I in",
+            "What groups am I a part of",
+            "What groups am I currently in",
+            "What groups am I in"
+          ]
+        },
+        {
+          "name": "LeaveGroupIntent",
+          "slots": [
+            {
+              "name": "group_name",
+              "type": "group_name"
+            }
+          ],
+          "samples": [
+            "I would like to leave group {group_name}",
+            "I want to leave group {group_name}",
+            "leave group {group_name}",
+            "I want to leave {group_name} group",
+            "I would like to leave {group_name}  group",
+            "I want to leave {group_name}",
+            "I would like to leave {group_name}",
+            "Can I leave {group_name}",
+            "Can I leave {group_name} group"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Cycling"
+              }
+            },
+            {
+              "name": {
+                "value": "Gaming"
+              }
+            },
+            {
+              "name": {
+                "value": "Reading"
+              }
+            },
+            {
+              "name": {
+                "value": "Bread making"
+              }
+            },
+            {
+              "name": {
+                "value": "blue man group"
+              }
+            },
+            {
+              "name": {
+                "value": "Extreme chess"
+              }
+            }
+          ],
+          "name": "group_name"
+        }
+      ]
+    }
+  },
+  "version": "22"
+}

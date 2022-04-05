@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block header %}{{ attendee }} {{ response}}{% endblock %}
+{% block content %}
+<div style="text-align: center;" class="container">
+    <p>You have {{ response|lower }} {{ attendee }} and they have been notified.</p>
+</div>
+{% endblock %}

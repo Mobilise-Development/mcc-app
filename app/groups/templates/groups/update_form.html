@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block header %}
+    Update
+    {% if page == "Group" %}
+        {{ group.name }} {{ group.provider }}
+    {% else %}
+        {{ page }}
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="shadow update-form">
+        <p class="form-header">Update {{ page }}</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {{ form.media }}
+            {{ additions|crispy }}
+            {{ additions.media }}
+            <input class="btn btn-success" type="submit" value="Update">
+        </form>
+    </div>
+{% endblock %}

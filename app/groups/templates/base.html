@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gwent Groups</title>
+
+    <link rel="shortcut icon" href="https://c978d03020deef37dc7e.b-cdn.net/wp-content/uploads/2019/11/favicon.png">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed"
+          href="https://c978d03020deef37dc7e.b-cdn.net/wp-content/uploads/2019/11/mobilise-57.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="https://c978d03020deef37dc7e.b-cdn.net/wp-content/uploads/2019/11/Mobilise-retina-114.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="https://c978d03020deef37dc7e.b-cdn.net/wp-content/uploads/2019/11/mobilise-72.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="https://c978d03020deef37dc7e.b-cdn.net/wp-content/uploads/2019/11/Mobilise-retina.png">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/toggle.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/728d86c47a.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+<div class="site-header">
+    <div class="toggle-container">
+    <p style="padding-bottom: 0; padding-right: 5px;">en</p>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+    <p style="padding-bottom: 0; padding-left: 5px;">cy</p>
+    </div>
+    <h1>{% block header %}{% endblock %}</h1>
+    <p class="welcome-user">{% block user %}{% endblock %}</p>
+</div>
+<div class="content-container">
+    {% block content %}
+    {% endblock %}
+</div>
+<div class="footer">
+    {% for x in "012345"|make_list %}
+        <div>
+            {% with image_path='images/gwent_groups_'|add:x|add:'.png' %}
+                <img class="footer-logo" src="{% static image_path %}" alt="logo">
+            {% endwith %}
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

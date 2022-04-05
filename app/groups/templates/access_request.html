@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form for approval</title>
+</head>
+<body>
+<div class="container" style="width: 70%; margin-left: auto; margin-right: auto;">
+    <div class="header" style="background-color: #1b8335; border-radius: 5px 5px 0 0;">
+        <p style="margin-bottom:0px; text-align: center; font-size: 2rem; color: white; font-family:  'Roboto', sans-serif; padding: 20px;">
+            {{ attendee|title }} wants to join your group: <br>{{ term.group }}, {{ term }}
+        </p>
+    </div>
+    <div class="body" style="border-radius: 0 0 5px 5px; text-align: center; background-color: #5fad73; padding: 50px;">
+        <div style="display: flex;">
+            <a href="{% url 'access-request' token=token response_code="1" %}"
+               class="approve" style="border: 1px solid black; border-radius: 5px; background-color: green; padding: 20px; margin: 5px; flex:1; color: white;">
+                Approve
+            </a>
+            <a href="{% url 'access-request' token=token response_code="0" %}"
+               class="decline" style="border: 1px solid black; border-radius: 5px; background-color: red; padding: 20px; margin: 5px; flex:1; color: white;">
+                Decline
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

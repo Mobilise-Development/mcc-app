@@ -1,0 +1,46 @@
+celerybeat-schedule.db
+app/package-lock.json
+package-lock.json
+.idea
+.DS_Store
+./venv
+./idea
+venv
+app/.env
+.venv
+dump.rdb
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.idea
+.pip_cache
+__pychache__/
+*.pyc
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.d.ts
+venv
+.idea
+
+/app/static/
+db.sqlite3
+
+node_modules

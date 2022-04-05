@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block header %}{{ platform_name }} - Admin Dashboard {% endblock %}
+{% block user %} Welcome {{ user }} <br/>
+    <a style="text-align: right !important; color:white; text-decoration: underline;"
+       href="{% url 'logout' %}">Logout</a> {% endblock %}
+{% block content %}
+    <div class="flex-container">
+        <div class="name-container">
+            <div class="box-header">
+                <p class="header-text">My Groups</p>
+
+                <div class="groups-container">
+                    {% for group in groups %}
+                        <div
+                            data-events="{{ group.list_events.0.id }}"
+                             data-attendee="{{ group.current_term.id }}"
+                                {% if forloop.first %} class="group-container selected"{% else %}class="group-container"{% endif %}>
+                            <div id="{{ group.current_term.id }}"
+                                 data-group="{{ group.id }}"
+                                class="group">
+                                {{ group.name }} {{ group.provider }}
+                            </div>
+                            <a class="edit-link" href="{% url 'group-update' group.id %}"><i class="fas fa-edit edit-button"></i></a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="name-container">
+            <div class="box-header">
+                <p class="header-text">Members of this group</p>
+                <div class="groups-container">
+                    {% for group in groups %}
+                        {% for attendee in group.attendees_current_term %}
+                            <li style="display: grid; grid-template-columns: auto auto auto;" class="attendees separation"
+                                value="{{ group.current_term.id }}">
+                                <div style="width: 30%; text-align: left;">{{ attendee.full_name }}</div>
+                                <div style="padding: 0 15px 0 5px; text-align: center;"> -</div>
+                                <div style="width: 30%;">{{ attendee.email }}</div>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="name-container">
+            <div class="box-header">
+                <p class="header-text">Events</p>
+                <div class="groups-container">
+                    {% for event in events %}
+                        <div style="text-align: left;" data-eventpk="{{ event.id }}"
+                            class="events separation hidden">
+                            <div>{{ event.start_time }} - {{ event.end_time }}
+                                <a style="float: right;" href="{% url 'event-update' event.id %}"><i style="font-size: 24px; color: #1e6fb8;" class="fas fa-edit"></i></a>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container">
+        <a style="width: 100%; text-align: center;">
+            <button class="btn btn-success open-form"
+                    style="width: 95%;"
+                    value="createGroup">
+                Create group
+            </button>
+        </a>
+        <a style="width: 100%; text-align: center;">
+            <button
+                    style="width: 90%; background-color: rgba(0, 0, 0, 0); all: unset;">
+            </button>
+        </a>
+        <a style="width: 100%; text-align: center;">
+            <button class="btn btn-success open-form"
+                    style="width: 95%;"
+                    value="createEvent">
+                Create events
+            </button>
+        </a>
+    </div>
+
+    <div id="createGroup" class="create-form shadow hidden">
+        <div id="closeGroupForm" class="close-form">X</div>
+        <p class="form-header">Create Group</p>
+        <form style="width:98%;" action="/" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form|crispy }}
+            <input class="btn btn-success" type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="createEvent" class="create-form shadow hidden">
+        <div id="closeEventForm" class="close-form">X</div>
+        <p class="form-header">Create Event</p>
+        <form action="/" method="post">
+            {% csrf_token %}
+            {{ event_form|crispy }}
+            {{ form.media }}
+            <input class="btn btn-success" type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}

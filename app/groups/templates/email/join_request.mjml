@@ -1,0 +1,74 @@
+{% load mjml %}
+{% mjml %}
+<mjml>
+    <mj-body background-color="#376244">
+        <mj-section background-color="#ffffff" padding-bottom="0px" padding-top="0">
+            <mj-column vertical-align="top" width="100%">
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="0px" padding-top="10px">
+            <mj-column vertical-align="top" width="100%">
+                <mj-text align="left" color="#ffffff" font-size="45px" font-weight="bold"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px"
+                         padding-bottom="30px" padding-top="50px">{{ group.name }} - {{ group.provider }}
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="20px" padding-top="20px">
+            <mj-column vertical-align="middle" width="100%">
+                <mj-text align="left" color="#ffffff" font-size="22px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    <span style="color:#2fc256">New Attendee Request</span>
+                    <br/>
+                    <br/>
+                    For group: {{ group.name }} - {{ group.provider }}
+                </mj-text>
+                <mj-text align="left" color="#ffffff" font-size="15px" line-height="150%"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    You have a new attendee request to join {{ group.name }} - {{ group.provider }}:
+                    <br/>
+                    <br/>
+
+                    <span style="color:#2fc256">{{ attendee.first_name }}</span>
+                    <br/>
+                    <span style="color:#2fc256">{{ attendee.email }}</span>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="20px">
+            <mj-column width="40%" vertical-align="middle">
+                <mj-button align="left" font-size="22px" font-weight="bold" background-color="#ffffff"
+                           border-radius="10px" color="#17c204" border="#17c204 solid 2px"
+                           font-family="open Sans Helvetica, Arial, sans-serif"
+                           href="{{invite.approve}}">
+                    Approve
+                </mj-button>
+            </mj-column>
+            <mj-column width="40%" vertical-align="middle">
+                <mj-button align="left" font-size="22px" font-weight="bold" background-color="#ffffff"
+                           border-radius="10px" color="#c2041d" border="#c2041d solid 2px "
+                           font-family="open Sans Helvetica, Arial, sans-serif"
+                           href="{{invite.decline}}">
+                    Decline
+                </mj-button>
+            </mj-column>
+            <mj-column width="100%">
+                <mj-text font-size="13px" color="white" line-height="150%" padding-top="40px">
+                    By selecting approve the attendee will be added to the group. By selecting decline the attendee will
+                    be notified that they have not been successful this time.
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="120px">
+            <mj-column>
+                <mj-text align="left" color="#ffffff" font-size="15px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    Thanks,
+                    <br/>
+                    {{ platform_name }}
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
+{% endmjml %}

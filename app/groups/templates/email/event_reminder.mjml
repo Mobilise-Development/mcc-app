@@ -1,0 +1,63 @@
+{% load mjml %}
+{% mjml %}
+
+<mjml>
+    <mj-body background-color="#376244">
+        <mj-section background-color="#ffffff" padding-bottom="0px" padding-top="0">
+            <mj-column vertical-align="top" width="100%">
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="0px" padding-top="10px">
+            <mj-column vertical-align="top" width="100%">
+                <mj-text align="left" color="#ffffff" font-size="45px" font-weight="bold"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px"
+                         padding-bottom="30px" padding-top="50px">{{ group.name }} - {{ group.provider }}
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="20px" padding-top="20px">
+            <mj-column vertical-align="middle" width="100%">
+                <mj-text align="left" color="#ffffff" font-size="22px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    <span style="color:#2fc256">Dear {{ first_name }}</span>
+                    <br/>
+                    <br/>
+                    Get ready {{ group.name }} - {{ group.provider }} starts soon.
+                </mj-text>
+                <mj-text align="left" color="#ffffff" font-size="15px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    Your group meeting is scheduled for {{ start_time }}.
+                    Click the join button below to join the meeting.
+                </mj-text>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="20px">
+            <mj-column width="100%" vertical-align="middle">
+                <mj-button align="left" font-size="22px" font-weight="bold" background-color="#ffffff"
+                           border-radius="10px" color="#04c236" font-family="open Sans Helvetica, Arial, sans-serif"
+                           href="{{group.link}}">
+                    Join
+                </mj-button>
+            </mj-column>
+        </mj-section>
+        <mj-section background-color="#376244" padding-bottom="120px">
+            <mj-column>
+                <mj-text align="left" color="#ffffff" font-size="15px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px">In case you have any
+                    questions, feel free to reach out to <a href="mailto:{{group.email}}" style="color: greenyellow;">
+                        the group admin</a>. If you no longer wish to receive these emails, you can unsubscribe using
+                    your Alexa device. Just say "Alexa open {{platform_name}}" and then "leave {{group.name}}
+                    {{group.provider}}".
+                </mj-text>
+                <mj-text align="left" color="#ffffff" font-size="15px"
+                         font-family="open Sans Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px">
+                    Thanks,
+                    <br/>
+                    <br/>
+                    {{ platform_name }}
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
+{% endmjml %}
