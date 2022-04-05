@@ -1,4 +1,4 @@
-# mcc-alexa-app
+# mcc-alexa-app POC
 
 [![CircleCI](https://circleci.com/gh/Mobilise-Devlopment/client-project-1/tree/development.shield?style=svg)](https://circleci.com/gh/Mobilise-Devlopment/client-project-1/tree/development)
 
